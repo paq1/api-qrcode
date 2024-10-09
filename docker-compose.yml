@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  app:
+    image: ppaquin/api-qrcode:latest
+    ports:
+      - "8083:8080"
+    depends_on:
+      - db
+    environment:
+      - API_ADDRESS=0.0.0.0
+      - API_PORT=8080
+    networks:
+      - api_qrcode-network
+networks:
+  api_qrcode-network:
+#    driver: bridge
